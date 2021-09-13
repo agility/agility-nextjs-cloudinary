@@ -2,6 +2,8 @@
 
 This is sample Next.js starter site that uses Agility CMS and Cloudinary together and aims to be a foundation for building fully static sites using Next.js, Agility CMS and Cloudinary.
 
+[Learn how to install the Cloudinary Integration into ANY Agility CMS instance](https://github.com/agility/CustomFields)
+
 [Live Website Demo](https://agilitycms-nextjs-starter-blog.vercel.app/)
 
 [New to Agility CMS? Sign up for a FREE account](https://agilitycms.com/free)
@@ -65,7 +67,7 @@ This starter builds on top of the Blog Starter Content Model, and has a special 
 4. Add Cloudinary fields to the **Post** Content Model in Agility
 	- We're going to add 2 new fields to this model and change one of the existing fields to not be required.
 	- Navigate to **Models -> Content Models -> Post**
-	- Click **Edit** on the Blog Cloudinary Image field
+	- Click **Edit** on the `Blog Image` field
 		- Uncheck Required Field
 		- Click the *Update Field* button
 	- Click **Add Field**
@@ -82,7 +84,7 @@ This starter builds on top of the Blog Starter Content Model, and has a special 
 5. Create a new Post with a Cloudinary Image and/or Video
 	- Navigate to **Content -> Blog Posts**
 	- Click **+ New**
-	- Fill out the fields, but DON'T choose a `Blog Cloudinary Image`
+	- Fill out the fields, but DON'T choose a `Blog Image`
 	- On the `Cloudinary Image` field click **Choose**
 		- You should see your Cloudinary Media library.  You can upload or choose an existing image.
 	- On the `Cloudinary Video` field, click  **Choose**
