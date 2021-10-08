@@ -196,7 +196,6 @@ var MarkdownCustomField = function () {
 ContentManager.Global.CustomInputFormFields.push(new MarkdownCustomField());
 
 
-
 var integrationSettings = {
 	type: 'agility_cloudinary_custom_field',
 	platform: 'agilitycms',
@@ -209,14 +208,6 @@ var CloudinaryVideoField = function () {
 	field.Label = "Cloudinary Video";
 	field.ReferenceName = "CloudinaryVideo";
 	field.Render = function (options) {
-		/// <summary>Function called whenever the form container this Custom Field Type is rendered or refreshed.</summary>
-		/// <param name="options" type="Object">
-		///     <field name="$elem" type="jQueryElem">The .field-row jQuery Dom Element.</field>
-		///     <field name="contentItem" type="ContentItem Object">The entire Content Item object including Values and their KO Observable properties of all other fields on the form.</field>
-		///     <field name="fieldBinding" type="KO Observable">The value binding of thie Custom Field Type. Get and set this field's value using this property.</field>
-		///     <field name="fieldSetting" type="Object">Object representing the field's settings such as 'Hidden', 'Label', and 'Description'</field>
-		///     <field name="readonly" type="boolean">Represents if this field should be readonly or not.</field>
-		/// </param>
 		var $pnl = $(".cloudinary-video-field", options.$elem);
 		if ($pnl.size() == 0) {
 			//pull down the html template and load it into the element
@@ -409,14 +400,6 @@ var CloudinaryImageField = function () {
 	field.Label = "Cloudinary Image";
 	field.ReferenceName = "Cloudinary Image";
 	field.Render = function (options) {
-		/// <summary>Function called whenever the form container this Custom Field Type is rendered or refreshed.</summary>
-		/// <param name="options" type="Object">
-		///     <field name="$elem" type="jQueryElem">The .field-row jQuery Dom Element.</field>
-		///     <field name="contentItem" type="ContentItem Object">The entire Content Item object including Values and their KO Observable properties of all other fields on the form.</field>
-		///     <field name="fieldBinding" type="KO Observable">The value binding of thie Custom Field Type. Get and set this field's value using this property.</field>
-		///     <field name="fieldSetting" type="Object">Object representing the field's settings such as 'Hidden', 'Label', and 'Description'</field>
-		///     <field name="readonly" type="boolean">Represents if this field should be readonly or not.</field>
-		/// </param>
 		var $pnl = $(".cloudinary-image-field", options.$elem);
 		if ($pnl.size() == 0) {
 			//pull down the html template and load it into the element
