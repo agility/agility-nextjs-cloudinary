@@ -3,8 +3,8 @@
 	<div class="panel-heading">
 		<div class="pull-right">
 			<!-- ko if: isImageSet() -->
-			<button class="special refresh btn btn-primary" data-bind="click: chooseImage">Choose</button>
-			<button class="special refresh btn btn-primary" data-bind="click: editImage">Manage</button>
+			<button class="special refresh btn btn-primary" data-bind="click: chooseImage">Replace</button>
+			<button class="special refresh btn btn-primary" data-bind="click: editImage">Edit</button>
 			<button class="trash btn btn-primary" data-bind="click: removeImage">Remove</button>
 			<!-- /ko -->
 			<!-- ko ifnot: isImageSet()-->
@@ -20,7 +20,8 @@
 
 			<!-- ko if: isImageSet()-->
 			<img src="https://res.cloudinary.com/cloudinary-marketing/image/upload/v1597164189/creative_source/Logo/Cloud%20Glyph/cloudinary_cloud_glyph_regular.svg" style="height: 1em"/>
-			A image has been selected from Cloudinary
+			<span data-bind="visible: fieldBinding().derived.raw_transformation()">An image (<a target="_blank" rel="noopener" data-bind="attr: { href: fieldBinding().derived.secure_url }">with transformations</a>) been selected from Cloudinary</span>
+			<span data-bind="visible: !fieldBinding().derived.raw_transformation()">An image been selected from Cloudinary</span>
 			<!-- /ko -->
 		</div>
 	</div>
@@ -29,19 +30,21 @@
 		<!-- <span data-bind="text:fieldBinding().secure_url"></span> -->
 
 		<div style="display: flex;">
-			<div style="width: 220px; padding: 10px">
+			<div style="width: 220px; padding: 10px; min-width: 100px;">
 				<img data-bind="attr: { src: thmSrc }" style="max-width: 100%;" />
 			</div>
 			<div style="flex:1">
-				<div style="display: flex; align-items: center;">
-					<div style="width: 150px">
+				<div style="display: flex; align-items: center; margin-bottom: 8px;">
+					<div style="width: 70px;">
 						<strong>Alt text:</strong>
 					</div>
 					<input type="text" data-bind="value:fieldBinding().alt" class="form-control" />
 				</div>
-				<div>Height: <span data-bind="text:fieldBinding().height"></span></div>
-				<div>Width: <span data-bind="text:fieldBinding().width"></span></div>
-				<div>Url <a data-bind="attr:{ href: fieldBinding().secure_url }, text:fieldBinding().public_id" /></div>
+				<div><strong>Public ID:</strong> <span data-bind="text: fieldBinding().public_id"></span></div>
+				<div><strong>Original URL:</strong> <a target="_blank" rel="noopener" data-bind="attr:{ href: fieldBinding().secure_url }">View</a></div>
+				<!-- ko if: fieldBinding().derived.secure_url -->
+				<div><strong>Transformed URL:</strong> <a style="word-break: break-word;" target="_blank" rel="nofollow" data-bind="attr:{ href: fieldBinding().derived.secure_url}">View</a></div>
+				<!-- /ko -->
 			</div>
 		</div>
 	</div>

@@ -3,8 +3,8 @@
 	<div class="panel-heading">
 		<div class="pull-right">
 			<!-- ko if: isVideoSet() -->
-			<button class="special refresh btn btn-primary" data-bind="click: chooseVideo">Choose</button>
-			<button class="special refresh btn btn-primary" data-bind="click: editVideo">Manage</button>
+			<button class="special refresh btn btn-primary" data-bind="click: chooseVideo">Replace</button>
+			<button class="special refresh btn btn-primary" data-bind="click: editVideo">Edit</button>
 			<button class="trash btn btn-primary" data-bind="click: removeVideo">Remove</button>
 			<!-- /ko -->
 			<!-- ko ifnot: isVideoSet()-->
@@ -19,7 +19,8 @@
 
 			<!-- ko if: isVideoSet()-->
 			<img src="https://res.cloudinary.com/cloudinary-marketing/image/upload/v1597164189/creative_source/Logo/Cloud%20Glyph/cloudinary_cloud_glyph_regular.svg" style="height: 1em"/>
-			A video has been selected from Cloudinary
+			<span data-bind="visible: fieldBinding().derived.raw_transformation()">A video (<a target="_blank" rel="noopener" data-bind="attr: { href: fieldBinding().derived.secure_url }">with transformations</a>) been selected from Cloudinary</span>
+			<span data-bind="visible: !fieldBinding().derived.raw_transformation()">A video been selected from Cloudinary</span>
 			<!-- /ko -->
 		</div>
 	</div>
@@ -35,10 +36,12 @@
 			<label class="control-label">Dimensions:</label>
 			<span data-bind="text: fieldBinding().width"/>x<span data-bind="text: fieldBinding().height"/>
 		</div>
+		<!-- ko if: formattedDuration -->
 		<div class="pull-left">
 			<label class="control-label">Duration:</label>
 			<span data-bind="text: formattedDuration"></span>
 		</div>
+		<!-- /ko -->
 		<div style="clear:both"> </div>
 	</div>
 	<!-- /ko -->
