@@ -52,7 +52,7 @@ This starter builds on top of the Blog Starter Content Model, and has a special 
 
 1. [Create your Cloudinary Account](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/udfxmpuf8euczsps2fnx) and get your Credentials
 	- Ensure your .env.local has `CLOUDINARY_CLOUD_NAME` and `CLOUDINARY_API_KEY` from your Cloudinary dashboard.
-
+ 
 2. Deploy to Vercel
 	- Push your clone of this repo into a new repo in Github
 	- Login to [Vercel](https://vercel.com) and create a new project from your new repo
